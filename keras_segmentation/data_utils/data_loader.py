@@ -1,4 +1,5 @@
 import itertools
+import imageio
 import os
 import random
 import six
@@ -82,7 +83,7 @@ def get_image_array(image_input,
                     imgNorm="sub_mean", ordering='channels_first'):
     """ Load image array from input """
 
-    if type(image_input) is np.ndarray:
+    if type(image_input) is np.ndarray or type(image_input) is imageio.core.util.Array:
         # It is already an array, use it as it is
         img = image_input
     elif isinstance(image_input, six.string_types):
