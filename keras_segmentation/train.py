@@ -154,7 +154,8 @@ def train(model,
 
     if not validate:
         model.fit_generator(train_gen, steps_per_epoch,
-                            epochs=epochs, callbacks=callbacks)
+                            epochs=epochs, callbacks=callbacks,
+                            use_multiprocessing=gen_use_multiprocessing)
     else:
         model.fit_generator(train_gen,
                             steps_per_epoch,
